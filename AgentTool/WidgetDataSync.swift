@@ -4,10 +4,10 @@ import SwiftData
 // 主 App → 小组件数据同步
 // 启动/回前台/数据变化时调用 sync(modelContext:)，把看板指标写进 App Group，再刷新小组件。
 enum WidgetDataSync {
-    static let appGroupID = "group.com.gj.tg.shared"
+    // 纯净版已移除 App Group（桌面小组件已删除，不再跨进程共享数据）
 
     private static var appGroupDefaults: UserDefaults? {
-        UserDefaults(suiteName: appGroupID)
+        UserDefaults.standard
     }
 
     static func sync(modelContext: ModelContext) {
